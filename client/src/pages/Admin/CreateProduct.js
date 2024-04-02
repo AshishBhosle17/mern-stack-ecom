@@ -1,9 +1,8 @@
-import React from 'react'
-import Layout from '../../components/Layout/Layout'
-import AdminMenu from '../../components/Layout/AdminMenu'
+import React from 'react';
+import AdminMenu from '../../components/Layout/AdminMenu';
+import Layout from '../../components/Layout/Layout';
 
-
-const CreateCategory = () => {
+const CreateProduct = () => {
   return (
     <Layout>
         <div className='row'>
@@ -11,7 +10,7 @@ const CreateCategory = () => {
                 <AdminMenu/ >
             </div>
             <div className='col-md-9'>
-              <h1>CreateCategory</h1>
+                <h1>CreateProduct</h1>
             </div>
 
         </div>
@@ -19,4 +18,4 @@ const CreateCategory = () => {
   )
 }
 
-export default CreateCategory;
+export default CreateProduct
