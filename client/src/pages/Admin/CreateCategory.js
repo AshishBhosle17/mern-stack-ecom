@@ -13,6 +13,25 @@ const CreateCategory = () => {
   const [selected, setSelected] = useState(null);
   const [updatedName, setUpdatedName] = useState("");
 
+   //handle Form
+   const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const { data } = await axios.post("http://localhost:8080/api/v1/category/create-category", {
+        name,
+      });
+      if (data?.success) {
+        toast.success(`${name} is created`);
+        getAllCategory();
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      // toast.error("somthing went wrong in input form");
+    }
+  };
+
   //get all cat
   const getAllCategory = async () => {
     try {
@@ -29,6 +48,46 @@ const CreateCategory = () => {
   useEffect(() => {
     getAllCategory();
   }, []);
+
+  //update category
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    try {
+      const { data } = await axios.put(
+        `http://localhost:8080/api/v1/category/update-category/${selected._id}`,
+        { name: updatedName }
+      );
+      if (data?.success) {
+        toast.success(`${updatedName} is updated`);
+        setSelected(null);
+        setUpdatedName("");
+        setVisible(false);
+        getAllCategory();
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  //delete category
+  const handleDelete = async (pId) => {
+    try {
+      const { data } = await axios.delete(
+        `http://localhost:8080/api/v1/category/delete-category/${pId}`
+      );
+      if (data.success) {
+        toast.success(`category is deleted`);
+
+        getAllCategory();
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      toast.error("Somtihing went wrong");
+    }
+  };
+
 
   return (
     <Layout title={"Dashboard - Create Category"}>
@@ -68,7 +127,7 @@ const CreateCategory = () => {
                               setSelected(c);
                             }}
                           >
-                            Edit
+                          Edit
                           </button>
                           <button
                             className="btn btn-danger ms-2"
@@ -76,7 +135,7 @@ const CreateCategory = () => {
                               handleDelete(c._id);
                             }}
                           >
-                            Delete
+                          Delete
                           </button>
                         </td>
                       </tr>
