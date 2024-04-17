@@ -4,8 +4,11 @@ import axios from "axios";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../../components/Prices";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../../context/cart";
+
 const HomePage = () => {
   const navigate = useNavigate();
+  const [cart, setCart] = useCart([]);
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [checked, setChecked] = useState([]);
@@ -156,22 +159,24 @@ const HomePage = () => {
         <div className="col-md-9">          
           <h1 className="text-center">All Products</h1>
           <div className="d-flex flex-wrap">
-            {products.map((product) => (
-              <div className="card m-2" key={product._id} style={{ width: "18rem" }}>
+            {products.map((p) => (
+              <div className="card m-2" key={p._id} style={{ width: "18rem" }}>
                 <img
-                  src={`http://localhost:8080/api/v1/product/product-photo/${product._id}`}
+                  src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
-                  alt={product.name}
+                  alt={p.name}
                 />
                 <div className="card-body">
-                  <h5 className="card-title">{product.name}</h5>
-                  <p className="card-text">{product.description.substring(0,30)}</p>
-                  <p className="card-text">$ {product.price }</p>
+                  <h5 className="card-title">{p.name}</h5>
+                  <p className="card-text">{p.description.substring(0,30)}</p>
+                  <p className="card-text">$ {p.price }</p>
                   <div className="d-grid gap-2">
                     <button className="btn btn-primary ms-1"onClick={() => navigate('/product/${p.slug}') } type="button">
                       More Details
                     </button>
-                    <button className="btn btn-secondary ms-1" type="button">
+                    <button className="btn btn-secondary ms-1" 
+                    onClick={() => 
+                    setCart([...cart,p])}>
                       ADD TO CART
                     </button>
                   </div>
