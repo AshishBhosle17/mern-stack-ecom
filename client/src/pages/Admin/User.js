@@ -1,21 +1,22 @@
-import React from 'react'
-import Layout from '../../components/Layout/Layout'
-import AdminMenu from '../../components/Layout/AdminMenu'
+import React from "react";
+import AdminMenu from "../../components/Layout/AdminMenu";
+import Layout from "./../../components/Layout/Layout";
 
-const User = () => {
+const Users = () => {
   return (
-    <Layout>
-        <div className='row'>
-            <div className='col-md-3'>
-                <AdminMenu/ >
-            </div>
-            <div className='col-md-9'>
-                <h1>user</h1>
-            </div>
-
+    <Layout title={"Dashboard - All Users"}>
+      <div className="container-fluid m-3 p-3">
+        <div className="row">
+          <div className="col-md-3">
+            <AdminMenu />
+          </div>
+          <div className="col-md-9">
+            <h1>All Users</h1>
+          </div>
         </div>
+      </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default User
+export default Users;
