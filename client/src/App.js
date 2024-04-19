@@ -38,9 +38,9 @@ function App() {
       <Route path="/dashboard" element={<PrivateRoute />}>
           <Route path="user" element={<Dashboard />} />
           <Route path="user/orders" element={<Order />} />
-          <Route path="user/profile" element={<Profile />} />
-          
+          <Route path="user/profile" element={<Profile />} />          
         </Route>
+        
         <Route path="/dashboard" element={<AdminRoute />}>
           <Route path="admin" element={<AdminDashboard />} />
           <Route path="admin/create-category" element={<CreateCategory />} />
