@@ -15,12 +15,11 @@ root.render(
   <AuthProvider>
     <SearchProvider>
       <CartProvider>
-      <BrowserRouter>
-       <App />  
-     </BrowserRouter>
-
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </CartProvider>
-    </SearchProvider>  
+    </SearchProvider>
   </AuthProvider>
 );
 

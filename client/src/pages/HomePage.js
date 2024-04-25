@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Layout from "../../components/Layout/Layout";
+import Layout from "../components/Layout/Layout";
 import axios from "axios";
 import { Checkbox, Radio } from "antd";
-import { Prices } from "../../components/Prices";
+import { Prices } from "../components/Prices";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../../context/cart";
+import { useCart } from "../context/cart";
 
 const HomePage = () => {
   const navigate = useNavigate();

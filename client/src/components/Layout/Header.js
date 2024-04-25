@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import SearchInput from "../Form/SearchInput";
 import useCategory from "../../hooks/useCategory";
 import { useCart } from "../../context/cart";
+import { Badge } from "antd";
 
 const Header = () => {
   const [auth, setAuth] = useAuth();
@@ -22,7 +23,7 @@ const Header = () => {
   };
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary ">
         <div className="container-fluid">
           <button
             className="navbar-toggler"
@@ -127,7 +128,9 @@ const Header = () => {
               )}
               <li className="nav-item">
                 <NavLink to="/cart" className="nav-link">
-                  Cart {cart?.length}
+                <Badge count={cart?.length} showZero offset={[10, -5]}>
+                  Cart 
+                  </Badge>
                 </NavLink>
               </li>
             </ul>
