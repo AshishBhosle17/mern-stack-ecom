@@ -45,6 +45,7 @@ const AdminOrders = () => {
   };
   return (
     <Layout title={"All Orders Data"}>
+      <div className="container m-5 p-5 dashboard">
       <div className="row dashboard">
         <div className="col-md-3">
           <AdminMenu />
@@ -109,10 +110,12 @@ const AdminOrders = () => {
                   </div>
                 ))}
               </div>
+              
             </div>
              )
             
           })}
+          </div>
         </div>
       </div>
     </Layout>

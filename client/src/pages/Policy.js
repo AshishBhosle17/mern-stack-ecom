@@ -5,7 +5,7 @@ const Policy = () => {
   return (
     <Layout>
         <div className="row contactus ">
-        <div className="col-md-6 ">
+        <div className="col-md-5 ">
           <img
             src="/images/contactus.jpeg"
             alt="contactus"
