@@ -5,7 +5,7 @@ const About = () => {
   return (
     <Layout>
       <div className="row contactus ">
-        <div className="col-md-6 ">
+        <div className="col-md-5 ">
           <img
             src="/images/about.jpeg"
             alt="contactus"
